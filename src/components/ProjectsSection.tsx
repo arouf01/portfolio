@@ -15,8 +15,7 @@ const projects = [
   },
   {
     title: "JSON Tools Platform",
-    description:
-      "Developer-focused JSON utilities and tools for parsing, formatting, and validating JSON data.",
+    description: "Developer-focused JSON Formatter and Viewer Online.",
     url: "https://json.advanced-it.top",
     icon: Code,
     tags: ["JavaScript", "React", "Tools"],
@@ -25,7 +24,7 @@ const projects = [
   {
     title: "Food Menu Application",
     description:
-      "Dynamic restaurant menu management system with beautiful UI and easy content management.",
+      "A dynamic daily team meal management system where members can sign up, add their food items, and view the team’s meals through a beautiful, easy-to-use interface.",
     url: "https://foodmenu.advanced-it.top",
     icon: Utensils,
     tags: ["React", "UI/UX", "CMS"],

@@ -75,8 +75,8 @@ const HeroSection = () => {
               transition={{ delay: 0.5 }}
               className="text-muted-foreground text-lg mb-8 max-w-lg"
             >
-              Specializing in Zoho CRM development, custom JavaScript solutions,
-              and WordPress design to help businesses automate and grow.
+              Specializing in Zoho One, custom JavaScript solutions, and
+              WordPress design to help businesses automate and grow.
             </motion.p>
 
             <motion.div

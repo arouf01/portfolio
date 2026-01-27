@@ -3,7 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { Code, Zap, Globe, Workflow } from "lucide-react";
 
 const highlights = [
-  { icon: Code, label: "Zoho CRM Expert", value: "3+ Years" },
+  { icon: Code, label: "Zoho One Expert", value: "4+ Years" },
   { icon: Zap, label: "JS Development", value: "React & Node" },
   { icon: Globe, label: "WordPress Sites", value: "30+ Built" },
   { icon: Workflow, label: "Automations", value: "100+ Workflows" },
@@ -65,20 +65,20 @@ const AboutSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-16 bg-card rounded-3xl p-8 md:p-12 shadow-card border border-border/50"
         >
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-2xl md:text-3xl font-bold font-display mb-4">
                 Why Work With Me?
               </h3>
               <p className="text-muted-foreground mb-6">
                 I bring a unique combination of technical expertise and business
-                understanding. Whether you need a custom Zoho CRM setup, a
+                understanding. Whether you need a custom Zoho One setup, a
                 dynamic React application, or a stunning WordPress site, I
                 deliver solutions that drive results.
               </p>
               <ul className="space-y-3">
                 {[
-                  "End-to-end Zoho CRM & Creator development",
+                  "End-to-end Zoho One development",
                   "Custom JavaScript solutions with React & Node.js",
                   "Professional WordPress website design",
                   "REST API integration & automation",
@@ -100,7 +100,7 @@ const AboutSection = () => {
             <div className="relative">
               <div className="absolute inset-0 gradient-bg opacity-10 rounded-2xl blur-xl" />
               <div className="relative bg-background/50 backdrop-blur rounded-2xl p-6 border border-border">
-                <pre className="text-sm overflow-x-auto">
+                <pre className="text-sm overflow-x-auto break-words w-full">
                   <code className="text-muted-foreground">
                     {`const developer = {
   name: "Abdur Rouf",

@@ -1,40 +1,48 @@
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const skills = [
-  { 
-    name: 'Zoho CRM & Creator', 
-    level: 95, 
-    description: 'Custom modules, workflows, and business applications' 
+  {
+    name: "Zoho One",
+    level: 95,
+    description: "Custom modules, workflows, and business applications",
   },
-  { 
-    name: 'JavaScript (React.js)', 
-    level: 85, 
-    description: 'Modern web applications with React ecosystem' 
+  {
+    name: "JavaScript (React.js)",
+    level: 85,
+    description: "Modern web applications with React ecosystem",
   },
-  { 
-    name: 'Node.js Development', 
-    level: 75, 
-    description: 'Backend APIs and server-side applications' 
+  {
+    name: "Node.js Development",
+    level: 75,
+    description: "Backend APIs and server-side applications",
   },
-  { 
-    name: 'WordPress Design', 
-    level: 90, 
-    description: 'Custom themes, plugins, and responsive designs' 
+  {
+    name: "WordPress Design",
+    level: 90,
+    description: "Custom themes, plugins, and responsive designs",
   },
-  { 
-    name: 'REST API Integration', 
-    level: 88, 
-    description: 'Connecting systems and automating data flows' 
+  {
+    name: "REST API Integration",
+    level: 88,
+    description: "Connecting systems and automating data flows",
   },
-  { 
-    name: 'Business Automation', 
-    level: 92, 
-    description: 'Workflow automation and process optimization' 
+  {
+    name: "Business Automation",
+    level: 92,
+    description: "Workflow automation and process optimization",
   },
 ];
 
-const SkillBar = ({ skill, index, isInView }: { skill: typeof skills[0], index: number, isInView: boolean }) => {
+const SkillBar = ({
+  skill,
+  index,
+  isInView,
+}: {
+  skill: (typeof skills)[0];
+  index: number;
+  isInView: boolean;
+}) => {
   return (
     <motion.div
       initial={{ opacity: 0, x: -30 }}
@@ -60,13 +68,21 @@ const SkillBar = ({ skill, index, isInView }: { skill: typeof skills[0], index: 
         <motion.div
           initial={{ width: 0 }}
           animate={isInView ? { width: `${skill.level}%` } : {}}
-          transition={{ duration: 1, delay: 0.3 + index * 0.1, ease: "easeOut" }}
+          transition={{
+            duration: 1,
+            delay: 0.3 + index * 0.1,
+            ease: "easeOut",
+          }}
           className="h-full gradient-bg rounded-full relative"
         >
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-            animate={{ x: ['-100%', '100%'] }}
-            transition={{ duration: 2, repeat: Infinity, delay: 1 + index * 0.2 }}
+            animate={{ x: ["-100%", "100%"] }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              delay: 1 + index * 0.2,
+            }}
           />
         </motion.div>
       </div>
@@ -79,7 +95,10 @@ const SkillsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-20 lg:py-32 bg-muted/30 relative overflow-hidden">
+    <section
+      id="skills"
+      className="py-20 lg:py-32 bg-muted/30 relative overflow-hidden"
+    >
       {/* Background Decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
@@ -92,19 +111,26 @@ const SkillsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-medium mb-4 block">My Expertise</span>
+          <span className="text-primary font-medium mb-4 block">
+            My Expertise
+          </span>
           <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">
             Skills & <span className="gradient-text">Technologies</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Focused expertise in Zoho ecosystem, modern JavaScript development, 
+            Focused expertise in Zoho ecosystem, modern JavaScript development,
             and professional website design.
           </p>
         </motion.div>
 
         <div className="max-w-3xl mx-auto space-y-8">
           {skills.map((skill, index) => (
-            <SkillBar key={skill.name} skill={skill} index={index} isInView={isInView} />
+            <SkillBar
+              key={skill.name}
+              skill={skill}
+              index={index}
+              isInView={isInView}
+            />
           ))}
         </div>
 
@@ -115,7 +141,14 @@ const SkillsSection = () => {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-16 flex flex-wrap justify-center gap-8"
         >
-          {['Zoho', 'React', 'Node.js', 'WordPress', 'JavaScript', 'REST API'].map((tech, i) => (
+          {[
+            "Zoho One",
+            "React",
+            "Node.js",
+            "WordPress",
+            "JavaScript",
+            "REST API",
+          ].map((tech, i) => (
             <motion.div
               key={tech}
               whileHover={{ scale: 1.1, y: -5 }}
