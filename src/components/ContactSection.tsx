@@ -21,7 +21,7 @@ const contactLinks = [
   {
     icon: Mail,
     label: "Email",
-    value: "arouf@advanced-it.top",
+    value: "arouf@a1zohosolutions.com",
     href: "mailto:arouf@advanced-it.top",
     color: "hover:text-emerald-500",
   },
@@ -86,7 +86,7 @@ const ContactSection = () => {
       };
       console.log(payload);
       await axios.post(
-        "https://advanced-it.top/wp-json/bit-pi/v1/webhook/callback/b9c52282-d6bc-4b0b-8476-8389877b436c",
+        "https://a1zohosolutions.com/wp-json/bit-pi/v1/webhook/callback/b9c52282-d6bc-4b0b-8476-8389877b436c",
         payload,
         {
           headers: {

@@ -5,10 +5,10 @@ import { Button } from "./ui/button";
 
 const projects = [
   {
-    title: "Advanced IT Solutions",
+    title: "A1 Zoho Solutions",
     description:
       "Professional IT services and solutions platform with modern design and seamless user experience.",
-    url: "https://advanced-it.top",
+    url: "https://a1zohosolutions.com",
     icon: Globe,
     tags: ["WordPress", "Web Design", "SEO"],
     gradient: "from-primary to-primary/60",
@@ -16,7 +16,7 @@ const projects = [
   {
     title: "JSON Tools Platform",
     description: "Developer-focused JSON Formatter and Viewer Online.",
-    url: "https://json.advanced-it.top",
+    url: "https://json.a1zohosolutions.com",
     icon: Code,
     tags: ["JavaScript", "React", "Tools"],
     gradient: "from-secondary to-secondary/60",
@@ -25,7 +25,7 @@ const projects = [
     title: "Food Menu Application",
     description:
       "A dynamic daily team meal management system where members can sign up, add their food items, and view the team’s meals through a beautiful, easy-to-use interface.",
-    url: "https://foodmenu.advanced-it.top",
+    url: "https://foodmenu.a1zohosolutions.com",
     icon: Utensils,
     tags: ["React", "UI/UX", "CMS"],
     gradient: "from-primary to-secondary",
