@@ -133,147 +133,221 @@ const ContactSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Contact Form */}
+        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
+          {/* Quick Facts Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:col-span-1"
+          >
+            <div className="glass-card rounded-2xl p-8 h-full border border-primary/20">
+              <h3 className="text-lg font-semibold mb-6 text-foreground flex items-center gap-2">
+                <span className="w-2 h-6 bg-gradient-to-b from-primary to-secondary rounded-full" />
+                Quick Facts
+              </h3>
+              <div className="space-y-6">
+                <div className="flex gap-3">
+                  <span className="text-2xl">📍</span>
+                  <div>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
+                      Location
+                    </p>
+                    <p className="text-foreground font-semibold">Bangladesh</p>
+                  </div>
+                </div>
+                <div className="flex gap-3">
+                  <span className="text-2xl">⏱️</span>
+                  <div>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
+                      Experience
+                    </p>
+                    <p className="text-foreground font-semibold">5+ Years</p>
+                  </div>
+                </div>
+                <div className="flex gap-3">
+                  <span className="text-2xl">🏆</span>
+                  <div>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
+                      Specialization
+                    </p>
+                    <p className="text-foreground font-semibold">
+                      Zoho & JavaScript
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-3">
+                  <span className="text-2xl">💼</span>
+                  <div>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
+                      Engagement
+                    </p>
+                    <p className="text-foreground font-semibold">
+                      Hourly / Project
+                    </p>
+                  </div>
+                </div>
+                <div className="pt-4 border-t border-primary/10">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    onClick={() => {
+                      // Replace with your actual CV URL
+                      window.open("https://a1zohosolutions.com/cv", "_blank");
+                    }}
+                    className="w-full px-4 py-3 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-xl font-semibold text-sm hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
+                  >
+                    📥 Download CV
+                  </motion.button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Contact Form & Links */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-2"
           >
-            <form
-              onSubmit={handleSubmit}
-              className="bg-card rounded-3xl p-8 shadow-card border border-border/50"
-            >
-              <h3 className="text-xl font-bold font-display mb-6">
-                Send a Message
-              </h3>
+            <div className="grid lg:grid-cols-2 gap-8 h-full">
+              {/* Contact Form */}
+              <form
+                onSubmit={handleSubmit}
+                className="glass-card rounded-2xl p-8 border border-primary/10"
+              >
+                <h3 className="text-xl font-bold font-display mb-6">
+                  Send a Message
+                </h3>
 
-              <div className="space-y-5">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium mb-2 text-muted-foreground"
-                  >
-                    Your Name
-                  </label>
-                  <Input
-                    id="name"
-                    placeholder="John Doe"
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    required
-                    className="bg-background/50"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium mb-2 text-muted-foreground"
-                  >
-                    Your Email
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="john@example.com"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    required
-                    className="bg-background/50"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium mb-2 text-muted-foreground"
-                  >
-                    Your Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    placeholder="Tell me about your project..."
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    required
-                    rows={5}
-                    className="bg-background/50 resize-none"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  variant="gradient"
-                  size="lg"
-                  className="w-full"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <motion.span
-                      animate={{ rotate: 360 }}
-                      transition={{
-                        duration: 1,
-                        repeat: Infinity,
-                        ease: "linear",
-                      }}
-                      className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full"
-                    />
-                  ) : (
-                    <>
-                      Send Message
-                      <Send size={18} className="ml-2" />
-                    </>
-                  )}
-                </Button>
-              </div>
-            </form>
-          </motion.div>
-
-          {/* Contact Links */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col justify-center"
-          >
-            <h3 className="text-xl font-bold font-display mb-6">
-              Or Reach Out Directly
-            </h3>
-
-            <div className="space-y-4">
-              {contactLinks.map((link, index) => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                  whileHover={{ x: 10, scale: 1.02 }}
-                  className={`flex items-center gap-4 p-4 bg-card rounded-2xl shadow-soft border border-border/50 transition-all duration-300 ${link.color} group`}
-                >
-                  <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center group-hover:gradient-bg transition-colors duration-300">
-                    <link.icon
-                      size={22}
-                      className="text-muted-foreground group-hover:text-primary-foreground transition-colors"
-                    />
-                  </div>
+                <div className="space-y-5">
                   <div>
-                    <p className="font-medium text-foreground">{link.label}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {link.value}
-                    </p>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium mb-2 text-muted-foreground"
+                    >
+                      Your Name
+                    </label>
+                    <Input
+                      id="name"
+                      placeholder="John Doe"
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
+                      required
+                      className="bg-background/50"
+                    />
                   </div>
-                </motion.a>
-              ))}
+
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium mb-2 text-muted-foreground"
+                    >
+                      Your Email
+                    </label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="john@example.com"
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                      required
+                      className="bg-background/50"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium mb-2 text-muted-foreground"
+                    >
+                      Your Message
+                    </label>
+                    <Textarea
+                      id="message"
+                      placeholder="Tell me about your project..."
+                      value={formData.message}
+                      onChange={(e) =>
+                        setFormData({ ...formData, message: e.target.value })
+                      }
+                      required
+                      rows={4}
+                      className="bg-background/50 resize-none"
+                    />
+                  </div>
+
+                  <Button
+                    type="submit"
+                    variant="gradient"
+                    size="lg"
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <motion.span
+                        animate={{ rotate: 360 }}
+                        transition={{
+                          duration: 1,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
+                        className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full"
+                      />
+                    ) : (
+                      <>
+                        Send Message
+                        <Send size={18} className="ml-2" />
+                      </>
+                    )}
+                  </Button>
+                </div>
+              </form>
+
+              {/* Contact Links */}
+              <div className="flex flex-col justify-between">
+                <div>
+                  <h3 className="text-lg font-bold font-display mb-6">
+                    Direct Contact
+                  </h3>
+                  <div className="space-y-3">
+                    {contactLinks.map((link, index) => (
+                      <motion.a
+                        key={link.label}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{
+                          duration: 0.4,
+                          delay: 0.4 + index * 0.08,
+                        }}
+                        whileHover={{ x: 5, scale: 1.01 }}
+                        className={`flex items-center gap-3 p-3 bg-primary/5 rounded-lg transition-all duration-300 ${link.color} group border border-primary/10 hover:border-primary/30`}
+                      >
+                        <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                          <link.icon
+                            size={18}
+                            className="text-primary group-hover:text-primary transition-colors"
+                          />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-foreground text-sm">
+                            {link.label}
+                          </p>
+                          <p className="text-xs text-muted-foreground">
+                            {link.value}
+                          </p>
+                        </div>
+                      </motion.a>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
