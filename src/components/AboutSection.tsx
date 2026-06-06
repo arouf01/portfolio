@@ -3,10 +3,10 @@ import { motion, useInView } from "framer-motion";
 import { Code, Zap, Globe, Workflow } from "lucide-react";
 
 const highlights = [
-  { icon: Code, label: "Zoho One Expert", value: "4+ Years" },
+  { icon: Code, label: "Zoho One Expert", value: "5+ Years" },
   { icon: Zap, label: "JS Development", value: "React & Node" },
   { icon: Globe, label: "WordPress Sites", value: "30+ Built" },
-  { icon: Workflow, label: "Automations", value: "100+ Workflows" },
+  { icon: Workflow, label: "Automations", value: "480+ Workflows" },
 ];
 
 const AboutSection = () => {

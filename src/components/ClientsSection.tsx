@@ -150,13 +150,13 @@ const ClientsSection = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-8 max-w-3xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold gradient-text mb-2">50+</div>
+              <div className="text-3xl font-bold gradient-text mb-2">480+</div>
               <p className="text-sm text-muted-foreground">
                 Projects Delivered
               </p>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold gradient-text mb-2">15+</div>
+              <div className="text-3xl font-bold gradient-text mb-2">37+</div>
               <p className="text-sm text-muted-foreground">Industries Served</p>
             </div>
             <div className="text-center">

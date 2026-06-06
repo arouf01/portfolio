@@ -173,7 +173,7 @@ const HeroSection = () => {
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
               >
-                112+
+                480+
                 <span className="text-xs absolute -bottom-8 text-foreground">
                   Projects
                 </span>

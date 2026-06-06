@@ -12,14 +12,14 @@ const stats = [
   },
   {
     icon: Users,
-    value: "50+",
+    value: "480+",
     label: "Projects Completed",
     description: "Across multiple industries",
     color: "text-emerald-500",
   },
   {
     icon: Zap,
-    value: "100+",
+    value: "372+",
     label: "Clients Satisfied",
     description: "Worldwide partnerships",
     color: "text-amber-500",
