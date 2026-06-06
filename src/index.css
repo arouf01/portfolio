@@ -1,28 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
-
 @layer base {
   :root {
-    --background: 150 60% 98%;
-    --foreground: 160 30% 10%;
+    --background: 30 40% 98%;
+    --foreground: 20 14% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 160 30% 10%;
+    --card-foreground: 20 14% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 160 30% 10%;
+    --popover-foreground: 20 14% 10%;
 
-    --primary: 160 84% 39%;
+    --primary: 21 89% 49%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 276 92% 40%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 150 20% 94%;
-    --muted-foreground: 160 10% 40%;
+    --muted: 30 20% 94%;
+    --muted-foreground: 20 8% 40%;
 
     --accent: 276 92% 40%;
     --accent-foreground: 0 0% 100%;
@@ -30,21 +30,21 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 150 20% 88%;
-    --input: 150 20% 88%;
-    --ring: 160 84% 39%;
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 21 89% 49%;
 
     --radius: 0.75rem;
 
     /* Custom gradient tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(160, 84%, 39%) 0%, hsl(276, 92%, 40%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(150, 60%, 98%) 0%, hsl(160, 40%, 95%) 50%, hsl(276, 30%, 95%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%) 0%, hsl(150, 30%, 98%) 100%);
-    
+    --gradient-primary: linear-gradient(135deg, hsl(21, 89%, 49%) 0%, hsl(276, 92%, 40%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(30, 40%, 98%) 0%, hsl(24, 40%, 95%) 50%, hsl(276, 30%, 95%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%) 0%, hsl(30, 30%, 98%) 100%);
+
     /* Shadow tokens */
-    --shadow-soft: 0 4px 20px -4px hsla(160, 84%, 39%, 0.15);
-    --shadow-glow: 0 0 30px -5px hsla(160, 84%, 39%, 0.3);
-    --shadow-card: 0 10px 40px -10px hsla(160, 30%, 10%, 0.1);
+    --shadow-soft: 0 4px 20px -4px hsla(21, 89%, 49%, 0.15);
+    --shadow-glow: 0 0 30px -5px hsla(21, 89%, 49%, 0.3);
+    --shadow-card: 0 10px 40px -10px hsla(20, 30%, 10%, 0.1);
     --shadow-card-hover: 0 20px 50px -15px hsla(276, 92%, 40%, 0.2);
 
     --sidebar-background: 0 0% 98%;
@@ -58,23 +58,23 @@
   }
 
   .dark {
-    --background: 160 30% 5%;
-    --foreground: 150 60% 98%;
+    --background: 20 15% 6%;
+    --foreground: 30 40% 98%;
 
-    --card: 160 25% 8%;
-    --card-foreground: 150 60% 98%;
+    --card: 20 14% 9%;
+    --card-foreground: 30 40% 98%;
 
-    --popover: 160 25% 8%;
-    --popover-foreground: 150 60% 98%;
+    --popover: 20 14% 9%;
+    --popover-foreground: 30 40% 98%;
 
-    --primary: 160 84% 45%;
-    --primary-foreground: 160 30% 5%;
+    --primary: 21 90% 55%;
+    --primary-foreground: 20 30% 8%;
 
     --secondary: 276 80% 55%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 160 20% 15%;
-    --muted-foreground: 150 20% 65%;
+    --muted: 20 12% 16%;
+    --muted-foreground: 30 15% 65%;
 
     --accent: 276 80% 55%;
     --accent-foreground: 0 0% 100%;
@@ -82,16 +82,16 @@
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 160 20% 18%;
-    --input: 160 20% 18%;
-    --ring: 160 84% 45%;
+    --border: 20 12% 18%;
+    --input: 20 12% 18%;
+    --ring: 21 90% 55%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(160, 84%, 45%) 0%, hsl(276, 80%, 55%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(160, 30%, 5%) 0%, hsl(160, 25%, 8%) 50%, hsl(276, 20%, 10%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(160, 25%, 10%) 0%, hsl(160, 20%, 8%) 100%);
-    
-    --shadow-soft: 0 4px 20px -4px hsla(160, 84%, 45%, 0.2);
-    --shadow-glow: 0 0 30px -5px hsla(160, 84%, 45%, 0.4);
+    --gradient-primary: linear-gradient(135deg, hsl(21, 90%, 55%) 0%, hsl(276, 80%, 55%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(20, 15%, 6%) 0%, hsl(20, 14%, 9%) 50%, hsl(276, 20%, 10%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(20, 14%, 11%) 0%, hsl(20, 12%, 8%) 100%);
+
+    --shadow-soft: 0 4px 20px -4px hsla(21, 90%, 55%, 0.2);
+    --shadow-glow: 0 0 30px -5px hsla(21, 90%, 55%, 0.4);
     --shadow-card: 0 10px 40px -10px hsla(0, 0%, 0%, 0.3);
     --shadow-card-hover: 0 20px 50px -15px hsla(276, 80%, 55%, 0.3);
 
@@ -151,7 +151,7 @@
 
   .glass-effect {
     @apply backdrop-blur-xl;
-    background: hsla(0, 0%, 100%, 0.8);
+    background: hsl(var(--background) / 0.7);
   }
 
   .shadow-soft {

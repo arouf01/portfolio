@@ -113,7 +113,7 @@ const HeroSection = () => {
                   icon: Linkedin,
                   href: "https://www.linkedin.com/in/abdur-rouf-ar/",
                 },
-                { icon: Mail, href: "mailto:arouf@advanced-it.top" },
+                { icon: Mail, href: "mailto:arouf@a1zohosolutions.com" },
               ].map(({ icon: Icon, href }) => (
                 <motion.a
                   key={href}
@@ -162,7 +162,7 @@ const HeroSection = () => {
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                4+
+                5+
                 <span className="text-xs absolute -bottom-8 text-foreground">
                   Years
                 </span>

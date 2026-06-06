@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import axios from "axios";
 import {
   Mail,
   Phone,
@@ -15,14 +14,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { log } from "console";
 
 const contactLinks = [
   {
     icon: Mail,
     label: "Email",
     value: "arouf@a1zohosolutions.com",
-    href: "mailto:arouf@advanced-it.top",
+    href: "mailto:arouf@a1zohosolutions.com",
     color: "hover:text-emerald-500",
   },
   {
@@ -77,21 +75,28 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      const payload = {
+      // Send as URL-encoded form data so this stays a CORS "simple request"
+      // (no preflight) and populates PHP's $_POST for the Bit Integrations
+      // webhook. We use mode: "no-cors" because the WordPress endpoint does
+      // not return Access-Control-Allow-Origin headers — the request is still
+      // delivered, but the response is opaque so we can't read its status.
+      const payload = new URLSearchParams({
         name: formData.name,
         email: formData.email,
         message: formData.message,
         source: "Portfolio Contact Form",
         timestamp: new Date().toISOString(),
-      };
-      console.log(payload);
-      await axios.post(
+      });
+
+      await fetch(
         "https://a1zohosolutions.com/wp-json/bit-pi/v1/webhook/callback/34d10e6b-4abf-40e7-8968-5aea12ab2852",
-        payload,
         {
+          method: "POST",
+          mode: "no-cors",
           headers: {
             "Content-Type": "application/json",
           },
+          body: payload,
         },
       );
 
