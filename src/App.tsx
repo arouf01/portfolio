@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import SiteBackground from "@/components/SiteBackground";
 import CursorSpotlight from "@/components/CursorSpotlight";
 import ThemeColorPicker from "@/components/ThemeColorPicker";
+import DynamicFavicon from "@/components/DynamicFavicon";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ const App = () => (
   <ThemeProvider>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <DynamicFavicon />
         <SiteBackground />
         <CursorSpotlight />
         <ThemeColorPicker />

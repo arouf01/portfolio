@@ -1,14 +1,19 @@
 /**
- * Smart theme system.
+ * Smart theme system — mode and color are INDEPENDENT.
  *
  * Everything visual is derived from three CSS variables (`--primary-h/s/l`)
- * plus the `dark` class, so a "palette" is simply a primary color and its
- * light/dark variant is the current mode. Two independent things are automated
- * when the visitor hasn't customized anything:
- *   - Mode: Light 06:00–17:59, Dark 18:00–05:59.
- *   - Palette: rotates every hour, `PALETTES[hour % 7]` (predictable, stable).
- * The moment the visitor changes color or mode, automation is disabled and
- * their choice is persisted until they Reset to Default.
+ * plus the `dark` class. Two aspects are automated separately, and each is
+ * frozen independently the moment the visitor customizes it:
+ *
+ *   - Mode:  auto = Light 06:00–17:59 / Dark 18:00–05:59, switching on the
+ *            day/night boundary. Fixed once the visitor toggles it.
+ *   - Color: auto = rotates every hour, `PALETTES[hour % 7]`. Fixed once the
+ *            visitor picks a color.
+ *
+ * Persistence keys exist ONLY when that aspect is user-controlled:
+ *   - `theme-mode` present  → mode is fixed to its value; absent → auto.
+ *   - `theme-color` present → color is fixed to its value; absent → auto.
+ * "Reset to default" removes both keys, restoring full automation.
  */
 
 export type Palette = { name: string; hex: string };
@@ -26,9 +31,8 @@ export const PALETTES: Palette[] = [
 export const DEFAULT_HEX = "#3386FE";
 
 export const KEYS = {
-  auto: "theme-auto", // "false" once the visitor customizes anything
-  color: "brand-primary", // saved primary hex (manual)
-  mode: "theme-mode", // "light" | "dark" (manual)
+  color: "theme-color", // saved primary hex — present only when user-fixed
+  mode: "theme-mode", // "light" | "dark" — present only when user-fixed
 } as const;
 
 export type Mode = "light" | "dark";
@@ -78,17 +82,21 @@ export function paletteIndexForHour(hour: number): number {
   return ((hour % PALETTES.length) + PALETTES.length) % PALETTES.length;
 }
 
-/** The automatic palette + mode for a given moment. */
-export function autoState(date = new Date()): { hex: string; mode: Mode } {
+/** Automatic color (hourly rotation) for a given moment. */
+export function autoColor(date = new Date()): string {
+  return PALETTES[paletteIndexForHour(date.getHours())].hex;
+}
+
+/** Automatic mode (time of day) for a given moment. */
+export function autoMode(date = new Date()): Mode {
   const hour = date.getHours();
-  const hex = PALETTES[paletteIndexForHour(hour)].hex;
-  const mode: Mode = hour >= 6 && hour < 18 ? "light" : "dark";
-  return { hex, mode };
+  return hour >= 6 && hour < 18 ? "light" : "dark";
 }
 
 /**
  * Inline, dependency-free script that applies the correct theme BEFORE first
- * paint (no flash). Kept in sync with the controller's `apply()`.
+ * paint (no flash). Mode and color resolve independently. Kept in sync with the
+ * controller's `apply()` and the copy inlined in index.html.
  */
 export const THEME_FOUC_SCRIPT = `(function(){try{
 var K=${JSON.stringify(KEYS)},P=${JSON.stringify(PALETTES.map((p) => p.hex))},D=${JSON.stringify(DEFAULT_HEX)};
@@ -103,9 +111,10 @@ return[Math.round(hu*360),Math.round(sa*100),Math.round(li*100)];}
 function light(x){var h=x.replace('#','');if(h.length===3)h=h.split('').map(function(c){return c+c}).join('');
 var r=parseInt(h.slice(0,2),16),g=parseInt(h.slice(2,4),16),b=parseInt(h.slice(4,6),16);
 return (r*299+g*587+b*114)/1000>150;}
-var auto=ls(K.auto)!=='false',hex,mode;
-if(auto){var hr=new Date().getHours();hex=P[((hr%P.length)+P.length)%P.length];mode=(hr>=6&&hr<18)?'light':'dark';}
-else{hex=ls(K.color)||D;mode=ls(K.mode)||'dark';}
+var hr=new Date().getHours();
+var savedColor=ls(K.color),savedMode=ls(K.mode);
+var hex=savedColor||P[((hr%P.length)+P.length)%P.length];
+var mode=savedMode||((hr>=6&&hr<18)?'light':'dark');
 var hsl=toHsl(hex),s=document.documentElement;
 s.style.setProperty('--primary-h',hsl[0]);
 s.style.setProperty('--primary-s',hsl[1]+'%');

@@ -76,10 +76,10 @@ const CursorSpotlight = () => {
     >
       <div
         ref={ref}
-        className="absolute left-[-170px] top-[-170px] h-[340px] w-[340px] rounded-full opacity-0 transition-opacity duration-500 will-change-transform"
+        className="absolute left-[-150px] top-[-150px] h-[300px] w-[300px] rounded-full opacity-0 transition-opacity duration-500 will-change-transform"
         style={{
           background:
-            "radial-gradient(circle, hsl(var(--primary) / 0.13) 0%, hsl(var(--primary) / 0.06) 40%, transparent 70%)",
+            "radial-gradient(circle, hsl(var(--primary) / 0.14) 0%, hsl(var(--primary) / 0.08) 40%, transparent 70%)",
           filter: "blur(24px)",
         }}
       />

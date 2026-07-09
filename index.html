@@ -64,13 +64,15 @@
     <meta name="theme-color" content="#3386FE" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0c1220" media="(prefers-color-scheme: dark)" />
 
-    <!-- Apply theme (color + light/dark) before first paint to avoid a flash -->
+    <!-- Apply theme before first paint to avoid a flash. Mode and color resolve
+         independently: each uses its saved value if present, else automatic
+         (mode = time of day, color = hourly rotation). Keep in sync with
+         src/lib/theme.ts (THEME_FOUC_SCRIPT) and ThemeProvider.apply(). -->
     <script>
       (function () {
         try {
-          var K = { auto: "theme-auto", color: "brand-primary", mode: "theme-mode" };
+          var K = { color: "theme-color", mode: "theme-mode" };
           var P = ["#3386FE", "#6366F1", "#8B5CF6", "#06B6D4", "#10B981", "#F43F5E", "#F59E0B"];
-          var D = "#3386FE";
           function ls(k) {
             try { var v = localStorage.getItem(k); if (v != null) return v; } catch (e) {}
             var m = document.cookie.match(new RegExp("(?:^|; )" + k + "=([^;]+)"));
@@ -93,9 +95,10 @@
             var r = parseInt(h.slice(0, 2), 16), g = parseInt(h.slice(2, 4), 16), b = parseInt(h.slice(4, 6), 16);
             return (r * 299 + g * 587 + b * 114) / 1000 > 150;
           }
-          var auto = ls(K.auto) !== "false", hex, mode;
-          if (auto) { var hr = new Date().getHours(); hex = P[((hr % P.length) + P.length) % P.length]; mode = hr >= 6 && hr < 18 ? "light" : "dark"; }
-          else { hex = ls(K.color) || D; mode = ls(K.mode) || "dark"; }
+          var hr = new Date().getHours();
+          var savedColor = ls(K.color), savedMode = ls(K.mode);
+          var hex = savedColor || P[((hr % P.length) + P.length) % P.length];
+          var mode = savedMode || (hr >= 6 && hr < 18 ? "light" : "dark");
           var hsl = toHsl(hex), s = document.documentElement;
           s.style.setProperty("--primary-h", hsl[0]);
           s.style.setProperty("--primary-s", hsl[1] + "%");

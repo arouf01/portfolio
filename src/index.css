@@ -73,6 +73,12 @@
     --error: 0 72% 51%;
     --info: 214 99% 60%;
 
+    /* Surfaces, dividers, and links. */
+    --surface: 214 40% 99%;
+    --divider: 214 24% 93%;
+    --link: var(--primary);
+    --link-hover: var(--primary-h) var(--primary-s) calc(var(--primary-l) - 10%);
+
     color-scheme: light;
     --radius: 0.875rem;
 
@@ -127,6 +133,9 @@
     --warning: 38 92% 56%;
     --error: 0 72% 60%;
     --info: 214 90% 66%;
+
+    --surface: 216 36% 13%;
+    --divider: 216 24% 24%;
 
     color-scheme: dark;
 
