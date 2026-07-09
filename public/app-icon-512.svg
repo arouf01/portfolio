@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" fill="none">
+  <defs>
+    <linearGradient id="hex" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#66A5FE"/>
+      <stop offset="1" stop-color="#1E5FD0"/>
+    </linearGradient>
+    <radialGradient id="bg" cx="50%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#12315e"/>
+      <stop offset="100%" stop-color="#0a1526"/>
+    </radialGradient>
+  </defs>
+  <!-- Dark background (Apple/maskable icons should not be transparent) -->
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <!-- Brand mark centered with safe-zone padding -->
+  <g transform="translate(96,96) scale(3.2)">
+    <path d="M50 6 L88 28 V72 L50 94 L12 72 V28 Z" fill="none" stroke="url(#hex)" stroke-width="5" stroke-linejoin="round"/>
+    <circle cx="50" cy="35" r="7" fill="#3386FE"/>
+    <circle cx="33" cy="63" r="7" fill="#1E5FD0"/>
+    <circle cx="67" cy="63" r="7" fill="#66A5FE"/>
+    <path d="M50 35 L33 63 M50 35 L67 63 M33 63 L67 63" stroke="#8aa0c0" stroke-width="2.5"/>
+  </g>
+</svg>
