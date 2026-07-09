@@ -46,7 +46,6 @@ const AboutSection = () => {
               className="bg-card rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 border border-border/50"
             >
               <motion.div
-                whileHover={{ rotate: 10 }}
                 className="w-14 h-14 rounded-xl gradient-bg flex items-center justify-center mb-4"
               >
                 <item.icon className="text-primary-foreground" size={24} />

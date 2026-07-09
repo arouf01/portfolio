@@ -102,7 +102,7 @@ const WorkAreasSection = () => {
                 <div className="glass-card rounded-2xl p-8 text-center h-full hover:scale-[1.05] transition-all duration-500 border border-primary/10 hover:border-primary/30">
                   {/* Icon */}
                   <motion.div
-                    whileHover={{ scale: 1.15, rotate: 10 }}
+                    whileHover={{ scale: 1.15 }}
                     className="flex justify-center mb-6"
                   >
                     <div className="p-4 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl">

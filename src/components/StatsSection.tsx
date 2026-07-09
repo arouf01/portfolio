@@ -59,7 +59,7 @@ const StatsSection = () => {
               >
                 <div className="glass-card p-6 rounded-2xl text-center h-full hover:scale-105 transition-transform duration-300">
                   <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    whileHover={{ scale: 1.1 }}
                     className="flex justify-center mb-4"
                   >
                     <div className="p-3 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl">

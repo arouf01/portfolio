@@ -88,7 +88,7 @@ const Projects = () => {
                   >
                     <div className="absolute inset-0 flex items-center justify-center">
                       <motion.div
-                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        whileHover={{ scale: 1.1 }}
                         className="w-20 h-20 bg-background/20 backdrop-blur-sm rounded-2xl flex items-center justify-center"
                       >
                         <project.icon className="w-10 h-10 text-primary-foreground" />

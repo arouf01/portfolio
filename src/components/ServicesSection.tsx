@@ -105,12 +105,9 @@ const ServicesSection = () => {
                 transition={{ delay: 0.3 + index * 0.1 }}
                 className="group"
               >
-                <div className="glass-card rounded-2xl p-8 h-full hover:scale-[1.03] transition-all duration-500 border border-primary/10 hover:border-primary/30">
+                <div className="glass-card rounded-2xl p-8 h-full transition-all duration-500 border border-primary/10 hover:border-primary/30">
                   {/* Icon */}
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="mb-6"
-                  >
+                  <motion.div className="mb-6">
                     <div className="p-4 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl w-fit">
                       <Icon className="w-8 h-8 text-primary" />
                     </div>
@@ -129,13 +126,12 @@ const ServicesSection = () => {
                   {/* Skills Tags */}
                   <div className="flex flex-wrap gap-2">
                     {service.skills.map((skill) => (
-                      <motion.span
+                      <span
                         key={skill}
-                        whileHover={{ scale: 1.05 }}
                         className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full"
                       >
                         {skill}
-                      </motion.span>
+                      </span>
                     ))}
                   </div>
                 </div>
