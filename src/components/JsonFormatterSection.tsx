@@ -48,7 +48,7 @@ const JsonFormatterSection = () => {
 
           <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
             {/* Left: copy + CTA */}
-            <div>
+            <div className="min-w-0">
               <span className="eyebrow">
                 <Braces className="h-3.5 w-3.5 text-primary" />
                 Free Developer Tool
@@ -93,7 +93,7 @@ const JsonFormatterSection = () => {
             </div>
 
             {/* Right: animated code-window mock + feature list */}
-            <div className="space-y-6">
+            <div className="min-w-0 space-y-6">
               <JsonCodeAnimation />
 
               <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
