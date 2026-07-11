@@ -138,82 +138,12 @@ const ContactSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
-          {/* Quick Facts Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-1"
-          >
-            <div className="glass-card rounded-2xl p-8 h-full border border-primary/20">
-              <h3 className="text-lg font-semibold mb-6 text-foreground flex items-center gap-2">
-                <span className="w-2 h-6 bg-gradient-to-b from-primary to-secondary rounded-full" />
-                Quick Facts
-              </h3>
-              <div className="space-y-6">
-                <div className="flex gap-3">
-                  <span className="text-2xl">📍</span>
-                  <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
-                      Location
-                    </p>
-                    <p className="text-foreground font-semibold">Bangladesh</p>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <span className="text-2xl">⏱️</span>
-                  <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
-                      Experience
-                    </p>
-                    <p className="text-foreground font-semibold">5+ Years</p>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <span className="text-2xl">🏆</span>
-                  <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
-                      Specialization
-                    </p>
-                    <p className="text-foreground font-semibold">
-                      Zoho & JavaScript
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <span className="text-2xl">💼</span>
-                  <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
-                      Engagement
-                    </p>
-                    <p className="text-foreground font-semibold">
-                      Hourly / Project
-                    </p>
-                  </div>
-                </div>
-                <div className="pt-4 border-t border-primary/10">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    onClick={() => {
-                      // Replace with your actual CV URL
-                      window.open("https://a1zohosolutions.com/cv", "_blank");
-                    }}
-                    className="w-full px-4 py-3 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-xl font-semibold text-sm hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
-                  >
-                    📥 Download CV
-                  </motion.button>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
+        <div className="max-w-6xl mx-auto mb-12">
           {/* Contact Form & Links */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-2"
           >
             <div className="grid lg:grid-cols-2 gap-8 h-full">
               {/* Contact Form */}
