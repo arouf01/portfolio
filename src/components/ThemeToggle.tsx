@@ -2,8 +2,9 @@ import { motion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
 import { useThemeControl } from "@/components/ThemeProvider";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-const ThemeToggle = () => {
+const ThemeToggle = ({ className }: { className?: string }) => {
   const { mode, toggleMode, mounted } = useThemeControl();
   const isDark = mode === "dark";
 
@@ -14,7 +15,7 @@ const ThemeToggle = () => {
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       aria-pressed={isDark}
       onClick={toggleMode}
-      className="text-foreground/80 hover:text-primary"
+      className={cn("text-foreground/80 hover:text-primary", className)}
     >
       {mounted ? (
         <motion.span

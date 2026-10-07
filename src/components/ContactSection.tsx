@@ -89,7 +89,7 @@ const ContactSection = () => {
       });
 
       await fetch(
-        "https://a1zohosolutions.com/wp-json/bit-pi/v1/webhook/callback/34d10e6b-4abf-40e7-8968-5aea12ab2852",
+        "https://developer.a1zohosolutions.com/wp-json/bit-pi/v1/webhook/callback/34d10e6b-4abf-40e7-8968-5aea12ab2852",
         {
           method: "POST",
           mode: "no-cors",
