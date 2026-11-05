@@ -19,8 +19,8 @@ const contactLinks = [
   {
     icon: Mail,
     label: "Email",
-    value: "arouf@a1zohosolutions.com",
-    href: "mailto:arouf@a1zohosolutions.com",
+    value: "arouf@a1flows.com",
+    href: "mailto:arouf@a1flows.com",
     color: "hover:text-emerald-500",
   },
   {
@@ -89,7 +89,7 @@ const ContactSection = () => {
       });
 
       await fetch(
-        "https://developer.a1zohosolutions.com/wp-json/bit-pi/v1/webhook/callback/34d10e6b-4abf-40e7-8968-5aea12ab2852",
+        "https://cms.a1flows.com/wp-json/bit-pi/v1/webhook/callback/34d10e6b-4abf-40e7-8968-5aea12ab2852",
         {
           method: "POST",
           mode: "no-cors",

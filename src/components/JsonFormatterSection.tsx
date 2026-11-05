@@ -28,7 +28,7 @@ const features = [
   "Free to Use",
 ];
 
-const TOOL_URL = "https://json.a1zohosolutions.com/";
+const TOOL_URL = "https://json.a1flows.com/";
 
 const JsonFormatterSection = () => {
   const ref = useRef(null);

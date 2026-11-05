@@ -113,7 +113,7 @@ const HeroSection = () => {
                   icon: Linkedin,
                   href: "https://www.linkedin.com/in/abdur-rouf-ar/",
                 },
-                { icon: Mail, href: "mailto:arouf@a1zohosolutions.com" },
+                { icon: Mail, href: "mailto:arouf@a1flows.com" },
               ].map(({ icon: Icon, href }) => (
                 <motion.a
                   key={href}

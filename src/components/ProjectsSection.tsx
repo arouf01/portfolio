@@ -8,7 +8,7 @@ const projects = [
     title: "A1 Zoho Solutions",
     description:
       "Professional IT services and solutions platform with modern design and seamless user experience.",
-    url: "https://a1zohosolutions.com",
+    url: "https://a1flows.com",
     icon: Globe,
     tags: ["WordPress", "Web Design", "SEO"],
     gradient: "from-primary to-primary/60",
@@ -16,7 +16,7 @@ const projects = [
   {
     title: "JSON Tools Platform",
     description: "Developer-focused JSON Formatter and Viewer Online.",
-    url: "https://json.a1zohosolutions.com",
+    url: "https://json.a1flows.com",
     icon: Code,
     tags: ["JavaScript", "React", "Tools"],
     gradient: "from-secondary to-secondary/60",
