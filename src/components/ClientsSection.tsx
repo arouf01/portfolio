@@ -4,7 +4,7 @@ import { MapPin } from "lucide-react";
 
 const clients = [
   {
-    name: "A1 Zoho Solutions",
+    name: "A1 Flows",
     industry: "IT Services",
     description: "Professional Zoho services and custom development solutions.",
     region: "Bangladesh",

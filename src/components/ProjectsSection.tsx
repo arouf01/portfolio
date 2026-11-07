@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 
 const projects = [
   {
-    title: "A1 Zoho Solutions",
+    title: "A1 Flows",
     description:
       "Professional IT services and solutions platform with modern design and seamless user experience.",
     url: "https://a1flows.com",
