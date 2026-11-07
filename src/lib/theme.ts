@@ -7,8 +7,8 @@
  *
  *   - Mode:  auto = Light 06:00–17:59 / Dark 18:00–05:59, switching on the
  *            day/night boundary. Fixed once the visitor toggles it.
- *   - Color: auto = rotates every hour, `PALETTES[hour % 7]`. Fixed once the
- *            visitor picks a color.
+ *   - Color: the fixed A1 Flows brand violet (DEFAULT_HEX) — no rotation. It is
+ *            fixed to a custom value once the visitor picks a color.
  *
  * Persistence keys exist ONLY when that aspect is user-controlled:
  *   - `theme-mode` present  → mode is fixed to its value; absent → auto.
@@ -21,14 +21,14 @@ export type Palette = { name: string; hex: string };
 export const PALETTES: Palette[] = [
   { name: "Blue", hex: "#3386FE" },
   { name: "Indigo", hex: "#6366F1" },
-  { name: "Violet", hex: "#8B5CF6" },
+  { name: "Violet", hex: "#7C3AED" },
   { name: "Cyan", hex: "#06B6D4" },
   { name: "Emerald", hex: "#10B981" },
   { name: "Rose", hex: "#F43F5E" },
   { name: "Amber", hex: "#F59E0B" },
 ];
 
-export const DEFAULT_HEX = "#3386FE";
+export const DEFAULT_HEX = "#7C3AED";
 
 export const KEYS = {
   color: "theme-color", // saved primary hex — present only when user-fixed
@@ -82,9 +82,9 @@ export function paletteIndexForHour(hour: number): number {
   return ((hour % PALETTES.length) + PALETTES.length) % PALETTES.length;
 }
 
-/** Automatic color (hourly rotation) for a given moment. */
-export function autoColor(date = new Date()): string {
-  return PALETTES[paletteIndexForHour(date.getHours())].hex;
+/** Brand color — fixed to the A1 Flows brand (DEFAULT_HEX); no longer rotates. */
+export function autoColor(): string {
+  return DEFAULT_HEX;
 }
 
 /** Automatic mode (time of day) for a given moment. */
@@ -99,7 +99,7 @@ export function autoMode(date = new Date()): Mode {
  * controller's `apply()` and the copy inlined in index.html.
  */
 export const THEME_FOUC_SCRIPT = `(function(){try{
-var K=${JSON.stringify(KEYS)},P=${JSON.stringify(PALETTES.map((p) => p.hex))},D=${JSON.stringify(DEFAULT_HEX)};
+var K=${JSON.stringify(KEYS)},D=${JSON.stringify(DEFAULT_HEX)};
 function ls(k){try{var v=localStorage.getItem(k);if(v!=null)return v;}catch(e){}
 var m=document.cookie.match(new RegExp('(?:^|; )'+k+'=([^;]+)'));return m?decodeURIComponent(m[1]):null;}
 function toHsl(x){var h=x.replace('#','');if(h.length===3)h=h.split('').map(function(c){return c+c}).join('');
@@ -113,7 +113,7 @@ var r=parseInt(h.slice(0,2),16),g=parseInt(h.slice(2,4),16),b=parseInt(h.slice(4
 return (r*299+g*587+b*114)/1000>150;}
 var hr=new Date().getHours();
 var savedColor=ls(K.color),savedMode=ls(K.mode);
-var hex=savedColor||P[((hr%P.length)+P.length)%P.length];
+var hex=savedColor||D;
 var mode=savedMode||((hr>=6&&hr<18)?'light':'dark');
 var hsl=toHsl(hex),s=document.documentElement;
 s.style.setProperty('--primary-h',hsl[0]);

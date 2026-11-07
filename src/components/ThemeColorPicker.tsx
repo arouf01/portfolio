@@ -86,9 +86,7 @@ const ThemeColorPicker = () => {
             <p className="mt-4 flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
               Color
               {isColorAuto ? (
-                <span className="inline-flex items-center gap-1 text-primary">
-                  <Sparkles className="h-3 w-3" /> rotates hourly
-                </span>
+                <span className="text-muted-foreground">default</span>
               ) : (
                 <span>custom</span>
               )}

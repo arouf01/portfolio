@@ -84,7 +84,7 @@ function apply(hex: string, mode: Mode, animate: boolean) {
 function resolve(): { hex: string; mode: Mode } {
   const now = new Date();
   return {
-    hex: read(KEYS.color) || autoColor(now),
+    hex: read(KEYS.color) || autoColor(),
     mode: (read(KEYS.mode) as Mode) || autoMode(now),
   };
 }
